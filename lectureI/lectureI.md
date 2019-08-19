@@ -60,14 +60,14 @@ In binary, everything is expressed in 1's and 0's (charge or no charge).
 
 In base 10, we are used to expressing numbers based on 10s. For example, the number 123 is:
 
-> 100 = 1 one hundreds
-> 20 = 2 tens
-> 3 = 3 1's
+> 100 = 1 one hundreds  
+> 20 = 2 tens  
+> 3 = 3 1's  
 
 Think of it this way -- we use digits 1-9 to count up to a base of 10. When we reach a base of 10, we move over one digit.
 
-> 09
-> 10
+> 09  
+> 10  
 
 We could also think of the tens place as 10^1 (ten to the power of one), and the hundreds place as 10^2 (ten to the power of two), etc.
 <br> 
@@ -76,11 +76,11 @@ Binary is similar, except that our base is 2, so we only use the digits 0 and 1 
 
 In binary, we write it like so:
 
-> 0b00 = 0
-> 0b01 = 1
-> 0b10 = 2
-> 0b11 = 3
-> 0b100 = 4
+> 0b00 = 0  
+> 0b01 = 1  
+> 0b10 = 2  
+> 0b11 = 3  
+> 0b100 = 4  
 
 Each digit place holds up to 1, so we count by increasing from 0 to 1 with each number. 00 to 01 to 10, much like we count in base 10 from 08 to 09 to 10.
 
@@ -90,13 +90,13 @@ The places are similar to base 10, in that the 1's place is 2^0, the 2's place i
 
 Let's compare how we build the number 7352 in binary and decimal:
 
-> 0b11100011
-> 128 place, 64 place, 32 place, 16 place, 8 place, 4 place, 2 place, 1 place
-> 128 + 64 + 32 + 0 + 0 + 0 + 2 + 1
+> 0b11100011  
+> 128 place, 64 place, 32 place, 16 place, 8 place, 4 place, 2 place, 1 place  
+> 128 + 64 + 32 + 0 + 0 + 0 + 2 + 1  
 
-> 7352
-> 1000 place, 100 place, 10 place, 1 place
-> 7000 + 300 + 50 + 2
+> 7352  
+> 1000 place, 100 place, 10 place, 1 place  
+> 7000 + 300 + 50 + 2  
 
 Base 10 tells us that we have 7 1000's, 3 100's, etc..
 
@@ -110,10 +110,10 @@ Those values still represent the same value you're used to. The remaining six di
 
 Remember the places are 16^0, 16^1, 16^2, etc..
 
-> 0xA32F
-> 4096 place, 256 place, 16 place, 1 place
-> 40960 + 768 + 32 + 15
-> 41775
+> 0xA32F  
+> 4096 place, 256 place, 16 place, 1 place  
+> 40960 + 768 + 32 + 15  
+> 41775  
 
 The larger the base, the more compact numbers can be. In hexadecimal, this number looks very small but is in fact quite large.
 
@@ -171,16 +171,16 @@ _Fun Fact: In casual conversation, computer geeks say "kilo" to mean 1024. In do
 
 Let's convert this to hex:
 
-> 0b11100011
+> 0b11100011  
 
 We could split it into two hexadecimal digits (remember, each digit is the same as 4 bits -- or 4 places in binary):
 
-> 0b1110 0b0011
-> 0xE 0x3
+> 0b1110 0b0011  
+> 0xE 0x3  
 
 Which reduces down to:
 
-> 0xE3
+> 0xE3  
 
 <br>
 
