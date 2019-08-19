@@ -336,10 +336,15 @@ BEEJ
 
 <br>
 
-It read '1' as our instruction of 1 (PRINT_BEEJ) rather than as the number to print, and it also is only incrementing by 1 when printing a number, so it hits an unknown instruction.
+
+Our bug is that `PRINT_NUM` takes an argument (the next value in memory), but because we are incrementing by only 1 when we hit that command, it tries to read the argument (number) as a command.
+
+In the first instand, it worked because it read '1' as our instruction of 1 (PRINT_BEEJ) rather than as the number to print.
+
+But the second time it hits a number, it reads 12 as an unknown instruction and stops running.
 
 
-So we can alter it by incrementing by 2 instead of 1 when we hit that instruction:
+We can fix it by incrementing by 2 instead of 1 when we hit that instruction (to bypass the arguments that are not meant to be read as commands):
 
 <br>
 
