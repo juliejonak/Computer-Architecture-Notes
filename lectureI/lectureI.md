@@ -16,7 +16,7 @@
 
 [Project Repo](https://github.com/LambdaSchool/Computer-Architecture)  
 
-[Lecture I Recording: Brady Fukumoto]()  
+[Lecture I Recording: Brady Fukumoto](https://youtu.be/E61m_d6BbcU)  
 
 <br>
 
@@ -543,6 +543,26 @@ int main(void)
 But, yes, the first assembler was written in machine code. And the first C compiler was written in assembly language.
 
 Eventually they rewrote the assembler in assembly, and rewrote the C compiler in C. Then it could compile itself--this is called self hosting. Way easier to maintain a C compiler written in C.
+
+<br>
+
+From Beej:
+
+>Time to level up in C, roughly, using numbers I made up:  
+>  
+> 0 hours: noob, what is this sorcery
+>  
+> 10 hours: beginner, can get basic jobs done, simple pointer tasks by rote.  
+>  
+> 200 hours: intermediate, understands pointers and pointer arithmetic, can handle single and double indirection without thinking about it, knows the build/link process, knows what undefined behavior is and can avoid it with pointers and arrays, can copy objects by casting to char* and iterating over the bytes.  
+>  
+> 1000 hours: expert, complete understanding of pointers and arbitrary amounts of indirection, knows all functions in the standard library, understands array-pointer equivalence, knows how to use union, can build shared and static libraries, can write endian-agnostic code, understands the ramifications of numeric type conversions, understands memory alignment and struct padding, never writes code with undefined behavior unless required and documented, understands the difference between undefined and implementation-defined behavior.  
+>  
+> 2000 hours: wizard, expert plus knows the esoterica in the spec, e.g. comparing items one past the end of an array, what happens with strange casts like floats to pointers, the computational model of expression evaluation, etc.
+I'll bet you can get entry-level embedded systems jobs at the intermediate level. But even expert level is "only" 4 months of full time study.  
+>  
+> C isn't a complicated language. It has a few tough concepts, but that's about it.  
+
 
 <br>
 <br>
