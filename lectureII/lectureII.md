@@ -23,6 +23,8 @@
 
 [Endianness](https://en.wikipedia.org/wiki/Endianness)  
 
+[Using Dispatch Tables](https://medium.com/better-programming/dispatch-tables-in-python-d37bcc443b0b)  
+
 <br>
 
 ## Convert Binary to Decimal
