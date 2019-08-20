@@ -14,7 +14,7 @@
 
 [Bitwise Operations](https://www.youtube.com/watch?v=0PNyhnIEsXE)  
 
-[CS19 Lecture II Recording: Brady Fukumoto]()  
+[CS19 Lecture II Recording: Brady Fukumoto](https://youtu.be/dgrUvv7bDgI)  
 
 <br>
 
