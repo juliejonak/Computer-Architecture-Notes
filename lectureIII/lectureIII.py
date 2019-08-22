@@ -6,15 +6,14 @@ PRINT_NUM      = 3
 SAVE           = 4
 PRINT_REGISTER = 5
 ADD            = 6
-
-'''
-SAVE takes 2 arguments
-saves value in [ARG1] to register [ARG2]
-'''
+PUSH           = 7
+POP            = 8
 
 register = [0] * 8
 
 memory = [0] * 128 # 128 bytes of RAM
+
+SP = 7 # Because it will live in register spot 7
 
 def load_memory(filename):
     try:
@@ -85,6 +84,26 @@ while running:
   elif command == HALT:
     running = False
     pc += 1
+
+  elif command == PUSH:
+      reg = memory[pc + 1] # grabs the value
+      val = register[reg]
+
+      register[SP] -= 1 # to decrement the address of SP
+
+      memory[register[SP]] = val # Set the spot in memory indicated by SP to the value given
+      pc += 2 # increment to the next command
+
+  elif command == POP:
+      reg = memory[pc + 1] # which register to write to
+      val = memory[register[SP]] # grabs the value stored at SP
+
+      register[reg] = val # write that val to the register
+      register[SP] += 1 # increments the address of SP
+
+      pc += 2
+
+      
 
   else:
     print(f"Unknown instruction: {command}")

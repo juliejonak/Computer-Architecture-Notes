@@ -1,14 +1,8 @@
 # Lecture III: The System Stack
 
 <br> a. [Additional Resources](#Additional-Resources)   
-<br> b. [](#)  
-<br> c. [](#)   
-<br> d. [](#)   
-<br> e. [](#)   
-<br> f. [](#)   
-<br> g. [](#)   
-<br> h. [](#)   
-<br> i. [](#)   
+<br> b. [Stacks](#Stacks)  
+<br> c. [Implementing a Stack](#Implementing-a-Stack)    
 <br>
 <br>
 
@@ -120,6 +114,80 @@ Our `stack pointer` keeps track of the items in the stack and the order to resol
 <br>
 
 PUSH takes a register index and copies the value to the address pointed to by the Stack Pointer.
+
+In the beginning, there is nothing on the Stack. When we call PUSH, our stack pointer will move to the top of the stack. That is where the value at the register index indicated will be copied to. Then the stack pointer moves to the next empty space.
+
+POP takes the value at the stack pointer in memory, and copies it into the register index given. The Stack Pointer is then incremented _back_ one index (because the Stack is now shorter, so it should be at the top item).
+
+<br>
+
+What happens if we try to POP an empty stack?
+
+Stack Underflow -- it will move to an area of memory that it shouldn't be pointing to and can cause problems, like overriding existing data.
+
+Stack Overflow happens when we call PUSH more times than our Stack's memory allows, going into the program memory area. Infinite recursion can cause this.
+
+
+<br>
+
+Let's create a stack and start coding. How do we implement a stack?
+
+Instead of creating a stack of bytes... we just create a Stack Pointer, and use the address range in memory that is allocated for our Stack.
+
+<br>
+
+```
+PUSH           = 7
+POP            = 8
+
+register = [0] * 8
+
+memory = [0] * 128 # 128 bytes of RAM
+
+SP = 7 # Because it will live in register spot 7
+```
+
+<br>
+
+We've also added references to our PUSH and POP commands. Now we'll add them into our if/else block.
+
+<br>
+
+```
+  elif command == PUSH:
+      reg = memory[pc + 1] # grabs the value
+      val = register[reg]
+
+      register[SP] -= 1 # to decrement the address of SP
+
+      memory[register[SP]] = val # Set the spot in memory indicated by SP to the value given
+      pc += 2 # increment to the next command
+
+  elif command == POP:
+      reg = memory[pc + 1] # which register to write to
+      val = memory[register[SP]] # grabs the value stored at SP
+
+      register[reg] = val # write that val to the register
+      register[SP] += 1 # increments the address of SP
+
+      pc += 2
+```
+
+<br>
+
+Both PUSH and POP look very similar, but in reverse order. One gets the value first, then puts it in the stack where indicated. The other gets a value from the stack to put into the register.
+
+<br>
+
+How do we prevent a stack under or overflow issue from happening? If PUSH or POP were called enough times, it could compromise the safety of the memory by filling the stack too much.
+
+Our software can keep track of this pending issue and prevent it; but the hardware on its own will not protect itself from this problem. This functionality is built into C and other languages.
+
+<br>
+<br>
+
+
+
 
 
 
