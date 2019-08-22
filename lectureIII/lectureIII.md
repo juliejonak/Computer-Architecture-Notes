@@ -177,6 +177,26 @@ We've also added references to our PUSH and POP commands. Now we'll add them int
 
 Both PUSH and POP look very similar, but in reverse order. One gets the value first, then puts it in the stack where indicated. The other gets a value from the stack to put into the register.
 
+One thing to note about how PUSH works is _when_ the Stack Pointer is decremented. The Stack Pointer is always pointing to the last item in the stack -- to a filled space in memory. 
+
+Before we write a new value into memory in the stack, we need to _decrement_ the Stack Pointer, to ensure it's at an empty (or unused) space in memory.
+
+Looking again, you'll notice:
+
+<br>
+
+```
+      register[SP] -= 1 # to decrement the address of SP
+
+      memory[register[SP]] = val # Set the spot in memory indicated by SP to the value given
+```
+
+<br>
+
+On the flip side, we only _increment_ with POP _after_ the item has been written to the register, because then it has been "removed" and that spot in the Stack memory is no longer being used. We increment to go to the last-filled space in the Stack.
+
+In our LS8 project, the stack runs from index 244 in RAM _down_ to index 0. Despite how we might intuitively think to add one means to increase the index, with the stack, we're actually decrementing down towards index 0.
+
 <br>
 
 How do we prevent a stack under or overflow issue from happening? If PUSH or POP were called enough times, it could compromise the safety of the memory by filling the stack too much.
